@@ -1,0 +1,15 @@
+
+
+body{
+    background-color: rgb(26, 26, 26);
+
+    display: grid;
+    place-items: center;
+
+    height: 96vh;
+}
+
+
+word-component{
+    padding: 20px;
+}

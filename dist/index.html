@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wordle</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="javascript/components/word.js" defer></script>
+    <script src="javascript/components/guess.js" defer></script>
+    <script type= 'module' src="javascript/app.js" defer></script>
+</head>
+<body>
+    <div id="guess-history">
+        <guess-component word="hello"></guess-component>
+    </div>
+    <word-component></word-component>
+
+
+    <button id="new-word" onclick="newWord()"></button>
+</body>
+</html>

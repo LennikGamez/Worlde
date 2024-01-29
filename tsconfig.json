@@ -1,0 +1,11 @@
+{
+    "compilerOptions": {
+        "target": "ESNext",
+        "module": "ESNext",
+        "strict": true,
+        "outDir": "./dist/javascript",
+        "skipLibCheck": true
+        },
+    "include": ["src/**/*.ts"],
+    "exclude": ["node_modules"]
+}
