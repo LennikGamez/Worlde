@@ -1,4 +1,7 @@
 
+:root{
+    --new-word-btn-size: 35px;
+}
 
 body{
     background-color: rgb(26, 26, 26);
@@ -12,4 +15,29 @@ body{
 
 word-component{
     padding: 20px;
+}
+
+
+#guess-history{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+
+#new-word{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    margin: 10px;
+    padding: 0;
+    background-color: transparent;
+    
+    border: none;
+    cursor: pointer;
+
+    width: var(--new-word-btn-size);
+    height: var(--new-word-btn-size);
+
+    background-image: url("./assets/refresh.svg");
 }
