@@ -1,6 +1,7 @@
-import data from '../data/wordlist.json' assert { type: 'json' };
-const guessHistory: HTMLElement | null = document.getElementById('guess-history'); 
+import data from "../data/wordlist.json" assert { type: 'json' };
 
+const guessHistory: HTMLElement | null = document.getElementById('guess-history'); 
+const newWordButton: HTMLElement | null = document.getElementById('new-word');
 
 class App{
     word: string;
@@ -49,7 +50,14 @@ class App{
         this.word = this.selectWord(data);
         return this.word
     }
+}
 
+function surrender(){
+    alert("Das richtige Wort war "+ app.word);
+    window.location.reload();
 }
 
 const app = new App();
+
+// newWordButton?.addEventListener('click', app.newWord.bind(app));
+newWordButton?.addEventListener('click', surrender);
