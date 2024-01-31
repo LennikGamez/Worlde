@@ -6,6 +6,11 @@ class Guess extends HTMLElement{
     word: string;
 
 
+    /**
+     * Returns a string containing CSS styles for the component.
+     *
+     * @return {string} The CSS styles as a string
+     */
     css(): string{
         return `<style>
 
@@ -34,6 +39,11 @@ class Guess extends HTMLElement{
         
         </style>`
     }
+    /**
+     * Method to generate an HTML string based on the word attribute.
+     *
+     * @return {string} the generated HTML string
+     */
     html(): string{
         let inner = ""
         console.log(this.word);
@@ -53,6 +63,9 @@ class Guess extends HTMLElement{
         this.word = this.getAttribute('word') || '';
     }
 
+    /**
+     * Render the HTML and CSS content into the shadow DOM.
+     */
     render(): void{        
         this.shadow.innerHTML = `
             ${this.html().trim()}
@@ -61,6 +74,13 @@ class Guess extends HTMLElement{
     }
 
 
+    /**
+     * Updates the component when an attribute has changed.
+     *
+     * @param {any} name - The name of the attribute that has changed.
+     * @param {any} oldValue - The previous value of the attribute.
+     * @param {any} newValue - The new value of the attribute.
+     */
     attributeChangedCallback(name: any, oldValue: any, newValue: any) {
         switch(name){
             case "word":
