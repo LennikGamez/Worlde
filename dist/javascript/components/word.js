@@ -3,6 +3,11 @@ class Word extends HTMLElement {
     shadow;
     inputFields;
     currentLetter = 0;
+    /**
+     * A function that generates a CSS style block.
+     *
+     * @return {string} the CSS style block as a string
+     */
     css() {
         return `<style>
             input{
@@ -13,6 +18,11 @@ class Word extends HTMLElement {
         
         </style>`;
     }
+    /**
+     * Generates a string of HTML input elements.
+     *
+     * @return {string} The string of HTML input elements.
+     */
     html() {
         let inner = "";
         for (let i = 0; i < 5; i++) {
@@ -47,12 +57,22 @@ class Word extends HTMLElement {
             });
         });
     }
+    /**
+     * Render the content by setting innerHTML with the HTML and CSS content.
+     */
     render() {
         this.shadow.innerHTML = `
             ${this.html().trim()}
             ${this.css().trim()}
         `;
     }
+    /**
+     * A function to handle the removal of a letter when the 'Backspace' key is pressed.
+     *
+     * @param {KeyboardEvent} event - the keyboard event triggering the function
+     * @param {HTMLInputElement} input - the HTML input element where the event occurred
+     * @param {number} index - the index of the input element
+     */
     removeLetter(event, input, index) {
         if (event.key === 'Backspace' && index > 0) {
             // focus on previous word field
@@ -62,6 +82,12 @@ class Word extends HTMLElement {
             }
         }
     }
+    /**
+     * Focuses on the next field based on the input and index.
+     *
+     * @param {HTMLInputElement} input - the input element to be focused on
+     * @param {number} index - the current index of the input element
+     */
     focusOnNextField(input, index) {
         input.value = input.value.toUpperCase();
         if (input.value.length >= 1 && index < 4) {
@@ -69,10 +95,19 @@ class Word extends HTMLElement {
             this.focusField(index + 1);
         }
     }
+    /**
+     * Sets the focus on the input field at the specified index.
+     *
+     * @param {number} index - the index of the input field to focus on
+     * @return {void}
+     */
     focusField(index) {
         this.currentLetter = index;
         this.inputFields[this.currentLetter].focus();
     }
+    /**
+     * Submit the user's guess by retrieving values from input fields and dispatching an event.
+     */
     submitGuess() {
         let _guess = "";
         this.inputFields.forEach((input) => {

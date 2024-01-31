@@ -40,13 +40,15 @@ class App{
      * @param shadow The shadow root of the guess element
      */
     checkGuess(guess: string, shadow: ShadowRoot): void{
-        this.word.split('').forEach((element: string, index: number) => {
+        guess.split('').forEach((element: string, index: number) => {
             element = element.toUpperCase();
-
-            if(guess[index] == element){
+            const word = this.word.toUpperCase();
+            
+            
+            if(word[index] == element){
                 this.addGuessLetterClass(index, 'correct', shadow);
             }
-            else if(guess.includes(element)){
+            else if(word.includes(element)){
                 this.addGuessLetterClass(index, 'close', shadow);
             }
             else{
