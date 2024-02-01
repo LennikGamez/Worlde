@@ -1,4 +1,4 @@
-import data from "../data/wordlist.json" assert { type: 'json' };
+import data from "./data/wordlist.json" assert { type: 'json' };
 const guessHistory = document.getElementById('guess-history');
 const newWordButton = document.getElementById('new-word');
 class App {

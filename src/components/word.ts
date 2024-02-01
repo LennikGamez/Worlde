@@ -1,5 +1,3 @@
-
-
 class Word extends HTMLElement{
     shadow: ShadowRoot;
     inputFields: NodeListOf<HTMLInputElement>;
@@ -12,14 +10,23 @@ class Word extends HTMLElement{
      * @return {string} the CSS style block as a string
      */
     css(){
-        return `<style>
+        
+        return /*css*/ `
+
+            :host{
+                display: flex;
+                gap:3px;
+            }
+
             input{
                 width: 50px;
                 height: 50px;
+                border-radius: 5px;
+                border: none;
             }
         
         
-        </style>`
+        `
     }
     /**
      * Generates a string of HTML input elements.
@@ -29,7 +36,7 @@ class Word extends HTMLElement{
     html(){
         let inner = ""
         for (let i = 0; i < 5; i++){
-            inner += `<input type="text" maxlength="1"></input>`
+            inner += /*html*/`<input type="text" maxlength="1"></input>`
         }
         return inner
     }
@@ -72,7 +79,9 @@ class Word extends HTMLElement{
     render(){        
         this.shadow.innerHTML = `
             ${this.html().trim()}
+            <style>
             ${this.css().trim()}
+            </style>
         `;
     }
 

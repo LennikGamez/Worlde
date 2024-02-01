@@ -12,11 +12,12 @@ class Guess extends HTMLElement{
      * @return {string} The CSS styles as a string
      */
     css(): string{
-        return `<style>
+        return /*css*/`
 
             :host{
                 display: flex;
                 height: 50px;
+                gap: 5px;
             }
 
             .guess-letter{
@@ -24,6 +25,8 @@ class Guess extends HTMLElement{
                 height: 50px;
                 background-color: white;
                 padding: 4px;
+
+                border-radius: 5px;
             }
 
             .correct{
@@ -37,7 +40,7 @@ class Guess extends HTMLElement{
             }
         
         
-        </style>`
+        `
     }
     /**
      * Method to generate an HTML string based on the word attribute.
@@ -49,7 +52,7 @@ class Guess extends HTMLElement{
         console.log(this.word);
         
         this.word.split('').forEach(element => {
-            inner += `<div class="guess-letter">${element}</div>`	
+            inner += /*html*/`<div class="guess-letter">${element}</div>`	
             
         });
 
@@ -69,7 +72,9 @@ class Guess extends HTMLElement{
     render(): void{        
         this.shadow.innerHTML = `
             ${this.html().trim()}
+            <style>
             ${this.css().trim()}
+            </style>
         `;
     }
 
