@@ -21,6 +21,8 @@ class Word extends HTMLElement {
                 height: 50px;
                 border-radius: 5px;
                 border: none;
+                vertical-align: middle;
+                text-align: center;
             }
         
         

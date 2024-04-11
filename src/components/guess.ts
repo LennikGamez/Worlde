@@ -27,6 +27,8 @@ class Guess extends HTMLElement{
                 padding: 4px;
 
                 border-radius: 5px;
+                text-align: center;
+                align-content: center;
             }
 
             .correct{
